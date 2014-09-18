@@ -43,20 +43,20 @@ names(data_set) <- factor(append(as.character(features[[2]]),c("activity_label",
 #
 #extract only mean and std measurements (vars) for data set
 #
-measurements <- data_set %>% select(contains("mean()"),contains("std()"), activity_label, subject)
+extractes_data <- data_set %>% select(contains("mean()"),contains("std()"), activity_label, subject)
 
 #
 #merge data set with activity_labeles data to provide meaningful activity names
 #rename/remove redundant columns
 #
-analysezed_data <- merge(measurements, activity_labels, by.x = "activity_label", by.y = "V1") %>%
+analyzed_data <- merge(extractes_data, activity_labels, by.x = "activity_label", by.y = "V1") %>%
   mutate(activity_label = V2) %>%
   select(-V2)
 
 #
 #summarize measurement average data per each subject/activity
 #
-summarized_data <- analysezed_data %>%
+summarized_data <- analyzed_data %>%
   group_by(subject,activity_label) %>%
   summarise_each(funs(mean))
 #
