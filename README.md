@@ -1,5 +1,5 @@
 ==================================================================
-Getting And Cleaning Data Course Project - Branch#1
+Getting And Cleaning Data Course Project
 ==================================================================
 
 Project description:
